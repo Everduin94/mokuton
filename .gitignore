@@ -23,6 +23,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.editorconfig
 
 # misc
 /.sass-cache
@@ -33,6 +34,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+favicon.ico
 
 # System Files
 .DS_Store

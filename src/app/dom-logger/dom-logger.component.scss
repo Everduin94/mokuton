@@ -1,0 +1,46 @@
+.container {
+    transition: all .6s ease-in-out;
+    position: absolute;
+    width: 20%;
+    height: 40rem;
+    right: 5px;
+    border: solid 1px black;
+    padding-right: 5px;
+    background: #35434d;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: none;
+    border-radius: 2px;
+}
+
+/**
+Solves mouseout issue, when you hover over the child, you technically leave the div.
+*/
+.container * {
+    pointer-events: none;
+}
+
+.container:hover {
+    width: 40%;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+button {
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    background: #35434d;
+    padding: 10px;
+    margin: 8px;
+}
+
+
+
