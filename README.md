@@ -6,3 +6,7 @@
 - npm install
 - npm run start
 - Navigate to localhost:4200
+
+Testing Circle CI Integrations
+
+V2

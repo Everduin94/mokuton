@@ -10,7 +10,7 @@ export class DomLoggerService {
   constructor() { }
 }
 
-let thingy = new BehaviorSubject<any[]>([]);
+const stateObserver = new BehaviorSubject<any[]>([]);
 
 export function Log() {
   return function (target, key) {
@@ -24,10 +24,10 @@ export function Log() {
         } else if (val instanceof Object) {
           textValue = JSON.stringify(val, null, 2)
         }
-        const prev: any[] = thingy.value;
-        const curr = [...prev, `${key}:~ ${textValue}`];
+        const prev: any[] = stateObserver.value;
+        const curr = [...prev, `${key}:~ ${textValue}`]; // TODO: Replace tilde hack (1)
         const clean = Array.from(new Set(curr));
-        thingy.next(clean);
+        stateObserver.next(clean);
       }
 
       return val
@@ -43,9 +43,9 @@ export function Log() {
   };
 }
 
-thingy.pipe(
+stateObserver.pipe(
   distinctUntilChanged((x, y) => {
-    // Slow but easy to write
+    // Slow but easy to write, TODO: Replace
     return JSON.stringify(x) === JSON.stringify(y);
   }),
 ).subscribe((val) => {
@@ -55,7 +55,7 @@ thingy.pipe(
   const container = document.querySelector('.container')
   if (!el) return;
 
-  const splitter = String(val[max]).split('~'); // Hack
+  const splitter = String(val[max]).split('~'); // TODO: Replace tilde hack (2)
 
   var li = document.createElement("li");
   li.className = 'list-item';
