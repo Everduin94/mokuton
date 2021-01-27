@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { DomLoggerComponent } from './dom-logger/dom-logger.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DoughnutChartComponent } from './chartcomponents/doughnut-chart/doughnut-chart.component';
 
 const config = {
   apiKey: "AIzaSyDtZcerC-KYLeqjxrJRaTbLheIFhZuEmlk",
@@ -25,7 +26,8 @@ const config = {
 @NgModule({
   declarations: [
     AppComponent,
-    DomLoggerComponent
+    DomLoggerComponent,
+    DoughnutChartComponent
   ],
   imports: [
     BrowserModule,
